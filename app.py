@@ -6,7 +6,8 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '')))
 
 # Import role-based dashboards
-from roles import admin, mentor, mentee
+from admin import users, matches, sessions
+#from roles import admin, mentor, mentee
 from auth.auth_handler import logout_user
 
 # Initialize the app
@@ -14,10 +15,10 @@ st.set_page_config(page_title="MentorLinks Platform", layout="wide")
 
 # Navigation
 def navigation():
-    role_options = {
-        "Admin": admin.show,
-        "Mentor": mentor.show,
-        "Mentee": mentee.show
+    admin_options = {
+        "Users": users.show,
+        "Matches": matches.show,
+        "All Sessions": mentee.show
     }
 
     if "user" not in st.session_state:
